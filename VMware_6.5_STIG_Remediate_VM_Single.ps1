@@ -7,7 +7,9 @@
 	This script will remediate a single Virtual Machines in the target vCenter for the following vSphere 6.0 STIG items:
 	VM-06-000001-6,8-27,33-39
 	All other Virtual Machine STIG items are recommended to remediate on a case by case basis.
+
 	!!Please read and know what this script it doing before running!!
+
 	Requirements to run script
 	-PowerCLI 6.0+ and Powershell 3+
 	-Powershell allowed to run unsigned/remote scripts
@@ -51,14 +53,14 @@ Start-Transcript -Path $TranscriptName
 	"isolation.tools.diskWiper.disable" = $true;  ## VM-06-000006
 	"isolation.tools.hgfsServerSet.disable" = $true;  ## VM-06-000008
 	"isolation.tools.ghi.autologon.disable" = $true;  ## VM-06-000009
-	"isolation.bios.bbs.disable" = $true;   ## VM-06-000010
-	"isolation.tools.getCreds.disable" = $true;  ## VM-06-000011
+#	"isolation.bios.bbs.disable" = $true;   ## VM-06-000010  Deleted in 6.5 Security guide
+#	"isolation.tools.getCreds.disable" = $true;  ## VM-06-000011  [Deleted in 6.5 Security guide]
 	"isolation.tools.ghi.launchmenu.change" = $true;  ## VM-06-000012
 	"isolation.tools.memSchedFakeSampleStats.disable" = $true;  ## VM-06-000013
 	"isolation.tools.ghi.protocolhandler.info.disable" = $true;  ## VM-06-000014
 	"isolation.ghi.host.shellAction.disable" = $true;  ## VM-06-000015
-	"isolation.tools.dispTopoRequest.disable" = $true;  ## VM-06-000016
-	"isolation.tools.trashFolderState.disable" = $true;  ## VM-06-000017
+#	"isolation.tools.dispTopoRequest.disable" = $true;  ## VM-06-000016  [Deleted in 6.5 Security guide]
+#	"isolation.tools.trashFolderState.disable" = $true;  ## VM-06-000017  [Deleted in 6.5 Security guide]
 	"isolation.tools.ghi.trayicon.disable" = $true;  ## VM-06-000018
 	"isolation.tools.unity.disable" = $true;  ## VM-06-000019
 	"isolation.tools.unityInterlockOperation.disable" = $true;  ## VM-06-000020
@@ -68,13 +70,13 @@ Start-Transcript -Path $TranscriptName
 	"isolation.tools.unity.windowContents.disable" = $true;  ## VM-06-000024
 	"isolation.tools.vmxDnDVersionGet.disable" = $true;  ## VM-06-000025
 	"isolation.tools.guestDnDVersionSet.disable" = $true;  ## VM-06-000026
-	"isolation.tools.vixMessage.disable" = $true;  ## VM-06-000027
+#	"isolation.tools.vixMessage.disable" = $true;  ## VM-06-000027  [Deleted in 6.5 Security guide]
 	"RemoteDisplay.maxConnections" = "1";  ## VM-06-000033
 	"RemoteDisplay.vnc.enabled" = $false;  ## VM-06-000034
-#	"isolation.tools.autoInstall.disable" = $true;  ## VM-06-000035  Uncomment if tools auto install is not used
+#	"isolation.tools.autoInstall.disable" = $true;  ## VM-06-000035  [Deleted in 6.5 Security guide]
 	"tools.setinfo.sizeLimit" = "1048576";  ## VM-06-000036
-	"isolation.device.connectable.disable" = $true;  ## VM-06-000037
-	"isolation.device.edit.disable" = $true;  ## VM-06-000038
+#	"isolation.device.connectable.disable" = $true;  ## VM-06-000037  [Deleted in 6.5 Security guide]
+#	"isolation.device.edit.disable" = $true;  ## VM-06-000038  [Deleted in 6.5 Security guide]
 	"tools.guestlib.enableHostInfo" = $false;  ## VM-06-000039
 	}
 
