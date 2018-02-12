@@ -1,15 +1,14 @@
 <#
 .SYNOPSIS
-	vSphere 6.0 STIG Virtual Machine Remediation Script for single VM
+	vSphere 6.5 STIG Virtual Machine Remediation Script for single VM
 	Created by: Ryan Lakey, rlakey@vmware.com
 	Provided as is and is not supported by VMware
+        Updated by: Todd Ouimet for 6.5 STIGs
 .DESCRIPTION
-	This script will remediate a single Virtual Machines in the target vCenter for the following vSphere 6.0 STIG items:
+	This script will remediate a single Virtual Machines in the target vCenter for the following vSphere 6.5 STIG items:
 	VM-06-000001-6,8-27,33-39
 	All other Virtual Machine STIG items are recommended to remediate on a case by case basis.
-
 	!!Please read and know what this script it doing before running!!
-
 	Requirements to run script
 	-PowerCLI 6.0+ and Powershell 3+
 	-Powershell allowed to run unsigned/remote scripts
@@ -22,7 +21,7 @@
 .PARAMETER cred
    This will prompt user for credentials that will be used to connect to vCenter specified.
 .EXAMPLE
-   ./VMware_6.0_STIG_Remediate_VM_Single.ps1 -vcenter vcenter.test.lab -server mytestserver
+   ./VMware_6.5_STIG_Remediate_VM_Single.ps1 -vcenter vcenter.test.lab -server mytestserver
 #>
 
 [CmdletBinding()]
@@ -73,6 +72,7 @@ Start-Transcript -Path $TranscriptName
 #	"isolation.tools.vixMessage.disable" = $true;  ## VM-06-000027  [Deleted in 6.5 Security guide]
 	"RemoteDisplay.maxConnections" = "1";  ## VM-06-000033
 	"RemoteDisplay.vnc.enabled" = $false;  ## VM-06-000034
+    "tools.guest.desktop.autolock" = $true  ## Guest OS Lock when last remote user disconnects
 #	"isolation.tools.autoInstall.disable" = $true;  ## VM-06-000035  [Deleted in 6.5 Security guide]
 	"tools.setinfo.sizeLimit" = "1048576";  ## VM-06-000036
 #	"isolation.device.connectable.disable" = $true;  ## VM-06-000037  [Deleted in 6.5 Security guide]
