@@ -86,6 +86,9 @@ Function Write-ToConsole ($Details){
 	Write-Host "$($LogDate) $Details"
 }
 
+# Load PowerCLI 6.5.x
+Import-Module -Name "C:\Program Files\WindowsPowerShell\Modules\VMware.VimAutomation.Core"
+
 ## Check for PowerCLI modules loaded and if not load them and if we can't exit
 Try{
 	if (!(Get-Module -Name VMware.VimAutomation.Core -ErrorAction Stop) ) {
